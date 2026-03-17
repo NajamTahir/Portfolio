@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Me - Najam Tahir</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+    line-height: 1.6;
+  }
+
+  /* NAVIGATION */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+    padding: 1rem 2rem;
+  }
+
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover {
+    color: #3b82f6;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 2px;
+    background: #1a1a1a;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 8rem 2rem 4rem;
+    text-align: center;
+    margin-top: 70px;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.95;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* CONTACT GRID */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  /* CONTACT INFO */
+  .contact-info h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+  }
+
+  .contact-info p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .info-cards {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .info-card {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s;
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+  }
+
+  .info-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border-color: #3b82f6;
+  }
+
+  .info-card .icon {
+    font-size: 1.8rem;
+    color: #3b82f6;
+    flex-shrink: 0;
+  }
+
+  .info-card-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    color: #1a1a1a;
+  }
+
+  .info-card-content p {
+    color: #666;
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .info-card-content a {
+    color: #3b82f6;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .info-card-content a:hover {
+    color: #2563eb;
+  }
+
+  /* SOCIAL LINKS */
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: #3b82f6;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: all 0.3s;
+  }
+
+  .social-link:hover {
+    background: #2563eb;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+  }
+
+  /* CONTACT FORM */
+  .contact-form h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #1a1a1a;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 0.9rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  .form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .btn-submit:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+  }
+
+  .form-success {
+    display: none;
+    background: #dcfce7;
+    border: 2px solid #86efac;
+    color: #166534;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    margin-top: 1rem;
+  }
+
+  .form-success.show {
+    display: block;
+  }
+
+  /* MAP SECTION */
+  #map-section {
+    background: #f8fafc;
+  }
+
+  .map-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    text-align: center;
+  }
+
+  .map-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+  }
+
+  .map-container p {
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+
+  .location-badge {
+    display: inline-block;
+    background: #3b82f6;
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  /* FAQ SECTION */
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s;
+  }
+
+  .faq-item:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border-color: #3b82f6;
+  }
+
+  .faq-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #1a1a1a;
+  }
+
+  .faq-item p {
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #1a1a1a;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+
+  footer p {
+    color: #999;
+    margin-bottom: 1rem;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* MOBILE MENU */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: white;
+    z-index: 999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .mobile-menu.active {
+    display: flex;
+  }
+
+  .mobile-menu a {
+    font-size: 1.5rem;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .close-menu {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    section {
+      padding: 3rem 1.5rem;
+    }
+
+    .social-links {
+      justify-content: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-menu" onclick="toggleMenu()">✕</button>
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="aboutme.html" onclick="toggleMenu()">About Me</a>
+  <a href="resume.html" onclick="toggleMenu()">Resume</a>
+  <a href="projects.html" onclick="toggleMenu()">Projects</a>
+  <a href="contactme.html" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-container">
+    <a href="index.html" class="logo">Najam Tahir</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aboutme.html">About Me</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contactme.html">Contact</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>Get In Touch</h1>
+  <p>Have a project in mind? Let's work together and bring your ideas to life!</p>
+</div>
+
+<!-- Contact Section -->
+<section id="contact">
+  <div class="contact-grid">
+    
+    <!-- Contact Info -->
+    <div class="contact-info fade-in">
+      <h2>Contact Information</h2>
+      <p>Feel free to reach out for freelance work, collaborations, full-time opportunities, or just to say hello. I'm always open to discussing new projects and creative ideas.</p>
+
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="icon">📧</div>
+          <div class="info-card-content">
+            <h3>Email</h3>
+            <p><a href="mailto:najamtahirminhas@gmail.com">najamtahirminhas@gmail.com</a></p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="icon">📱</div>
+          <div class="info-card-content">
+            <h3>Phone</h3>
+            <p><a href="tel:+971506304727">+971 50 630 4727</a></p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="icon">📍</div>
+          <div class="info-card-content">
+            <h3>Location</h3>
+            <p>United Arab Emirates</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="icon">🌐</div>
+          <div class="info-card-content">
+            <h3>Languages</h3>
+            <p>English, Urdu, Punjabi</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="social-links">
+        <a href="https://github.com/NajamTahir" target="_blank" class="social-link" title="GitHub">
+          <span>💻</span>
+        </a>
+        <a href="mailto:najamtahirminhas@gmail.com" class="social-link" title="Email">
+          <span>📧</span>
+        </a>
+        <a href="tel:+971506304727" class="social-link" title="Phone">
+          <span>📱</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form fade-in">
+      <h2>Send Me a Message</h2>
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Your Name *</label>
+          <input type="text" id="name" name="name" placeholder="John Doe" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" placeholder="john@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="+971 50 123 4567">
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject *</label>
+          <select id="subject" name="subject" required>
+            <option value="">Select a subject</option>
+            <option value="freelance">Freelance Project</option>
+            <option value="fulltime">Full-Time Opportunity</option>
+            <option value="collaboration">Collaboration</option>
+            <option value="question">General Question</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Your Message *</label>
+          <textarea id="message" name="message" placeholder="Tell me about your project or inquiry..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Send Message</button>
+
+        <div class="form-success" id="formSuccess">
+          ✓ Thank you for your message! I'll get back to you as soon as possible.
+        </div>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- Location -->
+<section id="map-section">
+  <div class="map-container fade-in">
+    <h3>📍 Based in the UAE</h3>
+    <p>Currently located in the United Arab Emirates and available for local and remote opportunities.</p>
+    <span class="location-badge">🇦🇪 United Arab Emirates</span>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <h2 class="section-title fade-in">Frequently Asked Questions</h2>
+  <div class="faq-container">
+    
+    <div class="faq-item fade-in">
+      <h3>What services do you offer?</h3>
+      <p>I specialize in web development (Node.js, MongoDB), 2D game development with p5.js, UI/UX design in Figma, and Python programming. I can help with full-stack web applications, interactive games, mobile apps, and creative coding projects.</p>
+    </div>
+
+    <div class="faq-item fade-in">
+      <h3>What is your hourly rate?</h3>
+      <p>My rates vary depending on the project complexity and requirements. Please contact me with details about your project for a customized quote.</p>
+    </div>
+
+    <div class="faq-item fade-in">
+      <h3>Do you work on remote projects?</h3>
+      <p>Yes! I'm available for both local UAE-based projects and remote work opportunities worldwide. I'm comfortable working across different time zones.</p>
+    </div>
+
+    <div class="faq-item fade-in">
+      <h3>What is your typical turnaround time?</h3>
+      <p>Project timelines vary based on scope and complexity. Small projects typically take 1-2 weeks, while larger applications may take 1-3 months. I'll provide a detailed timeline during our initial discussion.</p>
+    </div>
+
+    <div class="faq-item fade-in">
+      <h3>Can I see examples of your work?</h3>
+      <p>Absolutely! Check out my <a href="projects.html" style="color: #3b82f6; text-decoration: none; font-weight: 600;">projects page</a> where you'll find 15+ projects including web applications, games, UI designs, and more.</p>
+    </div>
+
+    <div class="faq-item fade-in">
+      <h3>What languages do you speak?</h3>
+      <p>I'm fluent in English, Urdu, and Punjabi, which allows me to communicate effectively with diverse clients and teams.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 Najam Tahir. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="aboutme.html">About Me</a>
+    <a href="resume.html">Resume</a>
+    <a href="projects.html">Projects</a>
+    <a href="https://github.com/NajamTahir" target="_blank">GitHub</a>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('active');
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Form submission
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Show success message
+    document.getElementById('formSuccess').classList.add('show');
+    
+    // Reset form
+    this.reset();
+    
+    // Hide success message after 5 seconds
+    setTimeout(() => {
+      document.getElementById('formSuccess').classList.remove('show');
+    }, 5000);
+  });
+</script>
+
+</body>
+</html>

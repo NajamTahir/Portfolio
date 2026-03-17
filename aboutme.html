@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Me - Najam Tahir</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+    line-height: 1.6;
+  }
+
+  /* NAVIGATION */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+    padding: 1rem 2rem;
+  }
+
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover {
+    color: #3b82f6;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 2px;
+    background: #1a1a1a;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 8rem 2rem 4rem;
+    text-align: center;
+    margin-top: 70px;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.95;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #1a1a1a;
+  }
+
+  /* ABOUT CONTENT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.8;
+  }
+
+  .about-text p {
+    margin-bottom: 1.5rem;
+  }
+
+  .about-text strong {
+    color: #3b82f6;
+    font-weight: 600;
+  }
+
+  /* INFO CARDS */
+  .info-cards {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .info-card {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+  }
+
+  .info-card h3 {
+    font-size: 1.2rem;
+    color: #3b82f6;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .info-card .icon {
+    font-size: 1.5rem;
+  }
+
+  .info-card p {
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .info-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .info-list li {
+    padding: 0.5rem 0;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .info-list li::before {
+    content: "▸";
+    color: #3b82f6;
+    font-weight: bold;
+  }
+
+  /* SKILLS SECTION */
+  #skills {
+    background: #f8fafc;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .skill-category {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .skill-category h3 {
+    font-size: 1.3rem;
+    color: #3b82f6;
+    margin-bottom: 1.5rem;
+  }
+
+  .skill-item {
+    margin-bottom: 1.2rem;
+  }
+
+  .skill-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  .skill-name {
+    font-weight: 500;
+    color: #1a1a1a;
+  }
+
+  .skill-pct {
+    color: #3b82f6;
+    font-size: 0.9rem;
+  }
+
+  .skill-bar-bg {
+    background: #e2e8f0;
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .skill-bar-fill {
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    height: 100%;
+    border-radius: 3px;
+    transition: width 1s ease;
+  }
+
+  /* TIMELINE */
+  #journey {
+    background: white;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e2e8f0;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 2rem;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.4rem;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    background: #3b82f6;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px #3b82f6;
+  }
+
+  .timeline-year {
+    font-size: 0.9rem;
+    color: #3b82f6;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+
+  .timeline-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .timeline-org {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 0.8rem;
+  }
+
+  .timeline-item p {
+    color: #666;
+    line-height: 1.6;
+  }
+
+  /* LANGUAGES */
+  .lang-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .lang-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s;
+  }
+
+  .lang-card:hover {
+    transform: translateY(-5px);
+    border-color: #3b82f6;
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+  }
+
+  .lang-card .flag {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .lang-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .lang-card .level {
+    color: #3b82f6;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+
+  footer p {
+    color: #999;
+    margin-bottom: 1rem;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* MOBILE MENU */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: white;
+    z-index: 999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .mobile-menu.active {
+    display: flex;
+  }
+
+  .mobile-menu a {
+    font-size: 1.5rem;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .close-menu {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+
+    section {
+      padding: 3rem 1.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-menu" onclick="toggleMenu()">✕</button>
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="aboutme.html" onclick="toggleMenu()">About Me</a>
+  <a href="resume.html" onclick="toggleMenu()">Resume</a>
+  <a href="projects.html" onclick="toggleMenu()">Projects</a>
+</div>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-container">
+    <a href="index.html" class="logo">Najam Tahir</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aboutme.html">About Me</a></li>
+      <li><a href="Resume.html">Resume</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contactme.html">Contact</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>About Me</h1>
+  <p>Get to know more about my background, skills, and journey in web development and creative computing</p>
+</div>
+
+<!-- Introduction -->
+<section id="intro">
+  <div class="about-grid">
+    <div class="about-text fade-in">
+      <h2 class="section-title">Who I Am</h2>
+      <p>Hi, I'm <strong>Najam Tahir</strong>, a creative developer from the UAE with a passion for building interactive digital experiences. I specialize in web development, 2D game development, and UI/UX design.</p>
+      <p>I hold <strong>UAE government attested Level 4 and Level 5 Diplomas in Creative Computing</strong> from Metaverseage, UAE, along with HSSC and SSC academic qualifications. My expertise spans full-stack web development with Node.js and MongoDB, 2D game development using p5.js, and professional UI/UX design.</p>
+      <p>With over <strong>15+ completed projects</strong> across web applications, mobile apps, games, and machine learning experiments, I bring a comprehensive skill set to every project. I'm fluent in English, Urdu, and Punjabi, and I'm a licensed driver.</p>
+    </div>
+
+    <div class="info-cards fade-in">
+      <div class="info-card">
+        <h3><span class="icon">📧</span> Contact</h3>
+        <p><strong>Email:</strong> najamtahirminhas@gmail.com</p>
+        <p><strong>Phone:</strong> 0506304727</p>
+        <p><strong>Location:</strong> UAE</p>
+      </div>
+
+      <div class="info-card">
+        <h3><span class="icon">🎓</span> Education</h3>
+        <ul class="info-list">
+          <li>L5 Diploma - Creative Computing (UAE Attested)</li>
+          <li>L4 Diploma - Creative Computing (UAE Attested)</li>
+          <li>HSSC - Higher Secondary Certificate</li>
+          <li>SSC - Secondary School Certificate</li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <h3><span class="icon">💼</span> Specializations</h3>
+        <ul class="info-list">
+          <li>Web Development (Node.js, MongoDB)</li>
+          <li>2D Game Development (p5.js)</li>
+          <li>UI/UX Design (Figma)</li>
+          <li>Python Programming</li>
+          <li>Mobile App Development</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <h2 class="section-title fade-in">Technical Skills</h2>
+  <div class="skills-grid">
+    
+    <div class="skill-category fade-in">
+      <h3>Frontend Development</h3>
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">HTML / CSS</span>
+          <span class="skill-pct">80%</span>
+        </div>
+        <div class="skill-bar-bg">
+          <div class="skill-bar-fill" style="width: 80%;"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">JavaScript</span>
+          <span class="skill-pct">70%</span>
+        </div>
+        <div class="skill-bar-bg">
+          <div class="skill-bar-fill" style="width: 70%;"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">Responsive Design</span>
+          <span class="skill-pct">75%</span>
+        </div>
+        <div class="skill-bar-bg">
+          <div class="skill-bar-fill" style="width: 75%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-category fade-in">
+      <h3>Backend & Database</h3>
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">Node.js</span>
+          <span class="skill-pct">65%</span>
+        </div>
+        <div class="skill-bar-bg">
+          <div class="skill-bar-fill" style="width: 65%;"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">MongoDB</span>
+          <span class="skill-pct">60%</span>
+        </div>
+        <div class="skill-bar-bg">
+          <div class="skill-bar-fill" style="width: 60%;"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">Python</span>
+          <span class="skill-pct">68%</span>
+        </div>
+        <div class="skill-bar-bg">
+          <div class="skill-bar-fill" style="width: 68%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-category fade-in">
+      <h3>Creative & Design</h3>
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">p5.js</span>
+          <span class="skill-pct">75%</span>
+        </div>
+        <div class="skill-bar-bg">
+          <div class="skill-bar-fill" style="width: 75%;"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">2D Game Dev</span>
+          <span class="skill-pct">72%</span>
+        </div>
+        <div class="skill-bar-bg">
+          <div class="skill-bar-fill" style="width: 72%;"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">UI/UX Design</span>
+          <span class="skill-pct">70%</span>
+        </div>
+        <div class="skill-bar-bg">
+          <div class="skill-bar-fill" style="width: 70%;"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Journey -->
+<section id="journey">
+  <h2 class="section-title fade-in">My Journey</h2>
+  <div class="timeline">
+    
+    <div class="timeline-item fade-in">
+      <div class="timeline-year">Present</div>
+      <h3>Freelance Developer & Designer</h3>
+      <div class="timeline-org">UAE</div>
+      <p>Working on web development, game development, and UI/UX design projects. Building portfolio with 15+ projects across multiple technologies and platforms.</p>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-year">2023-2024</div>
+      <h3>Creative Computing — Level 5 Diploma</h3>
+      <div class="timeline-org">Metaverseage, UAE (UAE Government Attested)</div>
+      <p>Advanced study in creative computing, interactive media, game design, web systems, and digital innovation. Completed multiple projects including 2D games, web applications, and creative coding experiments.</p>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-year">2022-2023</div>
+      <h3>Creative Computing — Level 4 Diploma</h3>
+      <div class="timeline-org">Metaverseage, UAE (UAE Government Attested)</div>
+      <p>Foundational creative computing covering programming logic, web development, visual design, and introduction to p5.js and interactive media.</p>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-year">Earlier</div>
+      <h3>HSSC & SSC Qualifications</h3>
+      <div class="timeline-org">Board of Education</div>
+      <p>Completed Higher Secondary Certificate (HSSC) and Secondary School Certificate (SSC) with strong academic foundation in core subjects.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Languages -->
+<section id="languages" style="background: #f8fafc;">
+  <h2 class="section-title fade-in">Languages I Speak</h2>
+  <div class="lang-grid">
+    
+    <div class="lang-card fade-in">
+      <div class="flag">🇵🇰</div>
+      <h3>Urdu</h3>
+      <p class="level">Native / Mother Tongue</p>
+    </div>
+
+    <div class="lang-card fade-in">
+      <div class="flag">🗣️</div>
+      <h3>Punjabi</h3>
+      <p class="level">Native / Mother Tongue</p>
+    </div>
+
+    <div class="lang-card fade-in">
+      <div class="flag">English</div>
+      <h3>English</h3>
+      <p class="level">Fluent / Professional</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Additional -->
+<section id="additional">
+  <h2 class="section-title fade-in">Talents & Additional Skills</h2>
+  <div class="about-grid">
+    <div class="info-card fade-in">
+      <h3><span class="icon">🚗</span> Driving</h3>
+      <p>Licensed driver with experience in daily commuting and independent transport. Comfortable navigating various routes and traffic conditions.</p>
+    </div>
+
+    <div class="info-card fade-in">
+      <h3><span class="icon">💡</span> Problem Solving</h3>
+      <p>Strong analytical and creative problem-solving abilities. Applied across coding challenges, design decisions, and system architecture. Passionate about finding elegant solutions to complex problems.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 Najam Tahir. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="resume.html">Resume</a>
+    <a href="projects.html">Projects</a>
+    <a href="https://github.com/NajamTahir" target="_blank">GitHub</a>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('active');
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
